@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRain } from '../../store/actions';
 import logo from '../../logo.svg';
+import Slider from '../../components/slider/Slider';
 
 function Home(): JSX.Element {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function Home(): JSX.Element {
   return (
     <div>
       <img src={logo} className="App-logo" alt="logo" />
+      <Slider name="Pressure" min={10} max={100} units="hPa."/>
     </div>
   );
 }

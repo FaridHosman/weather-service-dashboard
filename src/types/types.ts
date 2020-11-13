@@ -7,6 +7,11 @@ export interface RoutePathComponent {
         | React.ComponentType<any>;
 }
 
+export interface SliderDataType {
+  name: string;
+  value: number;
+}
+
 export interface UpcomingRainType {
   nextDaysOfRain: [
     {

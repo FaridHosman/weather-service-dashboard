@@ -3,15 +3,18 @@ import { Action, Reducer } from 'redux';
 import {
   GET_RAIN,
   SET_RAIN,
+  SET_SLIDER_VALUE,
 } from './constants'
-import { UpcomingRainType } from '../types/types';
+import { SliderDataType, UpcomingRainType } from '../types/types';
 
-export interface InitialState { // TODO: Define initial state
-  
+export interface InitialState {
+  Pressure: number;
+  Temperature: number;
 }
 
 export const initialState: InitialState = {
-  
+  Pressure: -1,
+  Temperature: -1
 };
 
 export interface DispatchAction extends Action {
@@ -32,6 +35,17 @@ export const rootReducer: Reducer<InitialState, DispatchAction> = (
         ...state,
         rain
       };
+
+    case SET_SLIDER_VALUE:
+
+      const { name, value } = action.payload as SliderDataType;
+      console.log({ [name]: value });
+      const SliderData = { [name]: value }
+
+      return {
+        ...state,
+        ...SliderData,
+      }
 
     default:
       return initialState;
