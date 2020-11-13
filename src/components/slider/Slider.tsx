@@ -37,7 +37,7 @@ function Slider(props: SliderProps): JSX.Element {
         max={max}
         value={value}
         onChange={(event) => onSliderChange(event)}
-        />
+      />
     </>
   )
 }

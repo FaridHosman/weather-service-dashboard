@@ -37,14 +37,10 @@ export const rootReducer: Reducer<InitialState, DispatchAction> = (
       };
 
     case SET_SLIDER_VALUE:
-
       const { name, value } = action.payload as SliderDataType;
-      console.log({ [name]: value });
-      const SliderData = { [name]: value }
-
       return {
         ...state,
-        ...SliderData,
+        ...{ [name]: value },
       }
 
     default:
