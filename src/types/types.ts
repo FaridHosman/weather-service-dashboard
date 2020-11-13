@@ -7,11 +7,16 @@ export interface RoutePathComponent {
         | React.ComponentType<any>;
 }
 
-export interface ExampleType {
-    example?: ExampleCounter
-    otherSampleField?: any
+export interface UpcomingRainType {
+  nextDaysOfRain: [
+    {
+      request: string;
+      days: DayAmountPair;
+    }
+  ]
 }
 
-export interface ExampleCounter {
-    exampleCounter: number
+interface DayAmountPair {
+  day: number;
+  amount: number;
 }

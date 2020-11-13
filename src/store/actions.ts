@@ -1,31 +1,18 @@
 import {
-    GET_EXAMPLE,SET_EXAMPLE,
-    ADD_EXAMPLE,
-    CHANGE_EXAMPLE
+    GET_RAIN,
+    SET_RAIN,
 } from './constants';
-import { ExampleType } from '../types/types';
+import { UpcomingRainType } from '../types/types';
 
-export function getExample() {
-    return {
-        type: GET_EXAMPLE
-    };
+export function getRain() {
+  return {
+    type: GET_RAIN
+  };
 }
 
-export function setExample(payload: ExampleType) { 
-    return {
-        payload: payload.example,
-        type: SET_EXAMPLE
-    };
-}
-
-export function addExample() {
-    return {
-        type: ADD_EXAMPLE
-    };
-}
-
-export function changeExample() {
-    return {
-        type: CHANGE_EXAMPLE
-    };
+export function setRain(payload: UpcomingRainType) { 
+  return {
+    payload: payload,
+    type: SET_RAIN
+  };
 }

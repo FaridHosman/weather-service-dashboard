@@ -4,13 +4,13 @@ import CounterControls from '../../components/counterControls/CounterControls'
 
 function Counter(): JSX.Element {
 
-    return (
-        <div>
-            counter
-            <Count/>
-            <CounterControls/>
-        </div>
-    );
+  return (
+    <div>
+      counter
+      <Count />
+      <CounterControls />
+    </div>
+  );
 }
 
 export default Counter;

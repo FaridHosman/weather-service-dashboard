@@ -1,4 +1,2 @@
-export const GET_EXAMPLE = 'GET_EXAMPLE';
-export const SET_EXAMPLE = 'SET_EXAMPLE';
-export const ADD_EXAMPLE = 'ADD_EXAMPLE';
-export const CHANGE_EXAMPLE = 'CHANGE_EXAMPLE';
+export const GET_RAIN = 'GET_RAIN';
+export const SET_RAIN = 'SET_RAIN';

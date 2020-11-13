@@ -11,8 +11,8 @@ import Home from './views/home/Home';
 
 const routes: Array<RoutePathComponent> = [
   {
-      path: '/',
-      component: Home
+    path: '/',
+    component: Home
   },
 ];
 
@@ -20,17 +20,17 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
-          <Switch>
-              {routes.map(route => (
-                  <Route
-                      key={'001'}
-                      path={route.path}
-                      exact={true}
-                      component={route.component}
-                  />
-              ))}
-              <Redirect to='/' />
-          </Switch>
+        <Switch>
+          {routes.map(route => (
+            <Route
+              key={'001'}
+              path={route.path}
+              exact={true}
+              component={route.component}
+            />
+          ))}
+          <Redirect to='/' />
+        </Switch>
       </Router>
     </div>
   );

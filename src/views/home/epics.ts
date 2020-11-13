@@ -1,26 +1,17 @@
-import { GET_EXAMPLE, CHANGE_EXAMPLE } from "../../store/constants";
-import { setExample } from "../../store/actions";
+import { GET_RAIN } from "../../store/constants";
+import { setRain } from "../../store/actions";
 import { mergeMap, map } from "rxjs/operators";
-import { exampleServiceBuilder } from "../../services/example/ExampleService";
 import { ofType, ActionsObservable } from 'redux-observable';
 import { Action } from 'redux';
+import { rainServiceBuilder } from "../../services/rain/RainService";
 
-const example = exampleServiceBuilder();
 
-export const getExampleEpic = ( actions$: ActionsObservable<Action> ) => actions$.pipe(
-    ofType(GET_EXAMPLE),
-    mergeMap(_ =>
-        example.findExample()
-        .pipe(
-            map(setExample)
-        ))
-);
+const rain = rainServiceBuilder();
 
-export const changeExampleEpic = ( actions$: ActionsObservable<Action> ) => actions$.pipe(
-    ofType(CHANGE_EXAMPLE),
-    mergeMap(_ =>
-        example.randomExample()
-        .pipe(
-            map(setExample)
-        ))
+export const getRainEpic = (actions$: ActionsObservable<Action>) => actions$.pipe(
+  ofType(GET_RAIN),
+  mergeMap(_ =>
+    rain.findNextDaysOfRain().pipe(
+      map(setRain)
+    ))
 );

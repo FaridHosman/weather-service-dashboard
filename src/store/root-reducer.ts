@@ -1,58 +1,39 @@
 
 import { Action, Reducer } from 'redux';
 import {
-    GET_EXAMPLE,
-    SET_EXAMPLE,
-    ADD_EXAMPLE,
-    CHANGE_EXAMPLE
+  GET_RAIN,
+  SET_RAIN,
 } from './constants'
-import { ExampleType, ExampleCounter } from '../types/types';
+import { UpcomingRainType } from '../types/types';
 
-export interface InitialState extends ExampleType {
-    example: ExampleCounter,
-    otherSampleField: any
+export interface InitialState { // TODO: Define initial state
+  
 }
 
 export const initialState: InitialState = {
-    example: {
-        exampleCounter: -1
-    },
-    otherSampleField: {}
+  
 };
 
 export interface DispatchAction extends Action {
-    payload: Partial<InitialState>;
+  payload: Partial<InitialState>;
 }
 
 export const rootReducer: Reducer<InitialState, DispatchAction> = (
-    state = initialState,
-    action
+  state = initialState,
+  action
 ) => {
-    switch (action.type) {
-        case GET_EXAMPLE:
-            return { ...state };
+  switch (action.type) {
+    case GET_RAIN:
+      return { ...state };
 
-        case SET_EXAMPLE:
-            const payload = action.payload as ExampleCounter;
-            return {
-                ...state,
-                example: payload
-            };
+    case SET_RAIN:
+      const rain = action.payload as UpcomingRainType;
+      return {
+        ...state,
+        rain
+      };
 
-        case ADD_EXAMPLE:
-            const prevCount = state.example?.exampleCounter;
-            const newCount = prevCount + 1
-            return {
-                ...state,
-                example: {
-                    exampleCounter: newCount
-                }
-            };
-
-        case CHANGE_EXAMPLE:
-            return { ...state };
-
-        default:
-            return initialState;
-    }
+    default:
+      return initialState;
+  }
 };

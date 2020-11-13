@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-sagas-typescript",
+  "name": "weather-service-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
