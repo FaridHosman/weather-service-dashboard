@@ -1,10 +1,10 @@
 import { RouteComponentProps } from 'react-router';
 
 export interface RoutePathComponent {
-    path: string;
-    component:
-        | React.ComponentType<RouteComponentProps<any>>
-        | React.ComponentType<any>;
+  path: string;
+  component:
+  | React.ComponentType<RouteComponentProps<any>>
+  | React.ComponentType<any>;
 }
 
 export interface SliderDataType {
@@ -12,16 +12,14 @@ export interface SliderDataType {
   value: number;
 }
 
-export interface UpcomingRainType {
-  nextDaysOfRain: [
-    {
-      request: string;
-      days: DayAmountPair;
-    }
-  ]
-}
+export type UpcomingRainType = [
+  { 
+    request: string; 
+    days: DayAmountPair[]; 
+  }
+]
 
-interface DayAmountPair {
-  day: number;
+export interface DayAmountPair {
+  day: number | string;
   amount: number;
 }

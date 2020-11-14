@@ -5,16 +5,28 @@ import {
   SET_RAIN,
   SET_SLIDER_VALUE,
 } from './constants'
-import { SliderDataType, UpcomingRainType } from '../types/types';
+import { DayAmountPair, SliderDataType, UpcomingRainType } from '../types/types';
 
 export interface InitialState {
   Pressure: number;
   Temperature: number;
+  nextDaysOfRain: [
+    {
+      request: string;
+      days: DayAmountPair[];
+    }
+  ];
 }
 
 export const initialState: InitialState = {
   Pressure: -1,
-  Temperature: -1
+  Temperature: -1,
+  nextDaysOfRain: [
+    {
+      request: '',
+      days:[],
+    }
+  ]
 };
 
 export interface DispatchAction extends Action {
@@ -30,10 +42,10 @@ export const rootReducer: Reducer<InitialState, DispatchAction> = (
       return { ...state };
 
     case SET_RAIN:
-      const rain = action.payload as UpcomingRainType;
+      const nextDaysOfRain = action.payload as UpcomingRainType;
       return {
         ...state,
-        rain
+        nextDaysOfRain
       };
 
     case SET_SLIDER_VALUE:

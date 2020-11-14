@@ -1,11 +1,9 @@
-export interface RainEntity {
-  nextDaysOfRain: [
-    {
-      request: string;
-      days: DayAmountPair;
-    }
-  ]
-}
+export type  RainEntity = [
+  { 
+    request: string; 
+    days: DayAmountPair[]; 
+  }
+]
 
 interface DayAmountPair {
   day: number;
