@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRain } from '../../store/actions';
-import logo from '../../logo.svg';
 import Slider from '../../components/slider/Slider';
 import AmountOfRainfallChart from '../../components/amountOfRainfallChart/AmountOfRainfallChart';
 
@@ -13,8 +12,8 @@ function Home(): JSX.Element {
 
   return (
     <div>
-      <img src={logo} className="App-logo" alt="logo" />
-      <Slider name="Pressure" min={10} max={100} units="hPa."/>
+      <Slider name="Pressure" min={970} max={1030} units="hPa."/>
+      <Slider name="Temperature" min={10} max={35} units="°C."/>
       <AmountOfRainfallChart />
     </div>
   );
