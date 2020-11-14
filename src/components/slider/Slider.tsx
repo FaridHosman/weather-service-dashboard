@@ -1,20 +1,25 @@
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSliderValue } from '../../store/actions';
+import { useSelector } from 'react-redux';
+import { InitialState } from '../../store/root-reducer';
 import styles from './Slider.module.scss';
 
 type SliderProps = {
   name: "Pressure" | "Temperature",
   min: number,
   max: number,
-  defaultValue: number,
   units: "hPa." | "°C.",
 }
 
 function Slider(props: SliderProps): JSX.Element {
-  const { name, min, max, defaultValue,  units } = props;
+  const { name, min, max, units } = props;
 
-  const [value, setValue] = useState(defaultValue);
+  const startingValue = useSelector<InitialState>(
+    state => state[name]
+  ) as number;
+
+  const [value, setValue] = useState(startingValue);
   const dispatch = useDispatch();
   const changeValue = useCallback(
     (value) => dispatch(setSliderValue(value)),
