@@ -19,8 +19,8 @@ export interface InitialState {
 }
 
 export const initialState: InitialState = {
-  Pressure: 970,
-  Temperature: 9,
+  Pressure: 1000,
+  Temperature: 23,
   nextDaysOfRain: [
     {
       request: '',

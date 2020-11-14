@@ -7,13 +7,14 @@ type SliderProps = {
   name: "Pressure" | "Temperature",
   min: number,
   max: number,
+  defaultValue: number,
   units: "hPa." | "°C.",
 }
 
 function Slider(props: SliderProps): JSX.Element {
-  const { name, min, max, units } = props;
+  const { name, min, max, defaultValue,  units } = props;
 
-  const [value, setValue] = useState(min);
+  const [value, setValue] = useState(defaultValue);
   const dispatch = useDispatch();
   const changeValue = useCallback(
     (value) => dispatch(setSliderValue(value)),

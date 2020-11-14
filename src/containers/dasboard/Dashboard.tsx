@@ -18,9 +18,9 @@ function Dashboard(): JSX.Element {
     <div className={styles.Dashboard}>
       <Header />
       <div className={styles.Grid}>
-        <Slider name="Pressure" min={970} max={1030} units="hPa." />
+        <Slider name="Pressure" min={970} max={1030} defaultValue={1000} units="hPa." />
         <ChanceOfRainChart />
-        <Slider name="Temperature" min={10} max={35} units="°C." />
+        <Slider name="Temperature" min={10} max={35} defaultValue={23} units="°C." />
         <AmountOfRainfallChart />
       </div>
       <Footer />
