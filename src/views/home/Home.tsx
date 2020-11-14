@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getRain } from '../../store/actions';
 import Slider from '../../components/slider/Slider';
 import AmountOfRainfallChart from '../../components/amountOfRainfallChart/AmountOfRainfallChart';
+import ChanceOfRainChart from '../../components/chanceOfRainChart/ChanceOfRainChart';
 
 function Home(): JSX.Element {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ function Home(): JSX.Element {
       <Slider name="Pressure" min={970} max={1030} units="hPa."/>
       <Slider name="Temperature" min={10} max={35} units="°C."/>
       <AmountOfRainfallChart />
+      <ChanceOfRainChart />
     </div>
   );
 }

@@ -23,3 +23,10 @@ export interface DayAmountPair {
   day: number | string;
   amount: number;
 }
+
+export interface ChanceOfRainChartElement {
+  day: string;
+  lower: number;
+  mean: number;
+  upper: number;
+}
