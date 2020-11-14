@@ -4,17 +4,17 @@ import {
 } from 'recharts';
 import { useSelector } from 'react-redux';
 import { InitialState } from '../../store/root-reducer';
-import { DayAmountPair, ChanceOfRainChartElement } from '../../types/types';
+import { DayAmountPairType, ChanceOfRainChartElementType } from '../../types/types';
 
 function ChanceOfRainChart(): JSX.Element {
   const state = useSelector<InitialState>(
     state => state
   ) as InitialState;
 
-  const upcomingRain: DayAmountPair[] = state.nextDaysOfRain[0].days;
+  const upcomingRain: DayAmountPairType[] = state.nextDaysOfRain[0].days;
   const pressure: number = state.Pressure;
   const temperature: number = state.Temperature;
-  let chancePerDay: ChanceOfRainChartElement[] = [];
+  let chancePerDay: ChanceOfRainChartElementType[] = [];
 
   function calcChanceOfRain(pressure: number, temperature: number, amount: number): number[] {
     const score = Math.log(amount + 1) * Math.log(pressure - 929) * Math.log(temperature - 9);
@@ -33,13 +33,13 @@ function ChanceOfRainChart(): JSX.Element {
   }
 
   return (
-    <>
-      <h1>
+    <div className="Chart">
+      <h2>
         Chance of rain chart
-      </h1>
+      </h2>
       <LineChart
-        width={700}
-        height={300}
+        width={500}
+        height={250}
         data={chancePerDay}
       >
         <CartesianGrid strokeDasharray="3 3" />
@@ -51,7 +51,7 @@ function ChanceOfRainChart(): JSX.Element {
         <Line type="monotone" dataKey="mean" stroke="#82ca9d" />
         <Line type="monotone" dataKey="upper" stroke="#ffca9d" />
       </LineChart>
-    </>
+    </div>
   );
 }
 

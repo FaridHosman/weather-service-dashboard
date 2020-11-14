@@ -1,12 +1,3 @@
-import { RouteComponentProps } from 'react-router';
-
-export interface RoutePathComponent {
-  path: string;
-  component:
-  | React.ComponentType<RouteComponentProps<any>>
-  | React.ComponentType<any>;
-}
-
 export interface SliderDataType {
   name: string;
   value: number;
@@ -15,16 +6,16 @@ export interface SliderDataType {
 export type UpcomingRainType = [
   { 
     request: string; 
-    days: DayAmountPair[]; 
+    days: DayAmountPairType[]; 
   }
 ]
 
-export interface DayAmountPair {
+export interface DayAmountPairType {
   day: number | string;
   amount: number;
 }
 
-export interface ChanceOfRainChartElement {
+export interface ChanceOfRainChartElementType {
   day: string;
   lower: number;
   mean: number;

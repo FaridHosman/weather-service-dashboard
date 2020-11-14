@@ -26,8 +26,7 @@ function Slider(props: SliderProps): JSX.Element {
   }
 
   return (
-    <>
-      <div className={styles.SliderContainer}></div>
+    <div className={styles.SliderContainer}>
       <label>{name}</label>
       <p>{value} {units}</p>
       <input
@@ -38,7 +37,7 @@ function Slider(props: SliderProps): JSX.Element {
         value={value}
         onChange={(event) => onSliderChange(event)}
       />
-    </>
+    </div>
   )
 }
 

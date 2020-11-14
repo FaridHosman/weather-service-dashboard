@@ -1,0 +1,18 @@
+.Dashboard {
+  .Grid {
+    background-color: var(--white);
+    display:grid;
+    grid-template-columns: 200px 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    width: 725px;
+    height: calc(100vh - 115px);
+    border-right: 1px solid var(--secondary-mid);
+    border-left: 1px solid var(--secondary-mid);
+
+    @media screen and (max-height: 600px) {
+      min-height: 95vh;
+    }
+  }
+}

@@ -5,7 +5,7 @@ import {
   SET_RAIN,
   SET_SLIDER_VALUE,
 } from './constants'
-import { DayAmountPair, SliderDataType, UpcomingRainType } from '../types/types';
+import { DayAmountPairType, SliderDataType, UpcomingRainType } from '../types/types';
 
 export interface InitialState {
   Pressure: number;
@@ -13,7 +13,7 @@ export interface InitialState {
   nextDaysOfRain: [
     {
       request: string;
-      days: DayAmountPair[];
+      days: DayAmountPairType[];
     }
   ];
 }

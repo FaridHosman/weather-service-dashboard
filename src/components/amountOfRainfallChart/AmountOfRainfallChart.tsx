@@ -4,33 +4,33 @@ import {
 } from 'recharts';
 import { useSelector } from 'react-redux';
 import { InitialState } from '../../store/root-reducer';
-import { DayAmountPair } from '../../types/types';
+import { DayAmountPairType } from '../../types/types';
 
 function AmountOfRainfallChart(): JSX.Element {
 
   const upcomingRain = useSelector<InitialState>(
     state => state.nextDaysOfRain[0].days
-  ) as DayAmountPair[];
+  ) as DayAmountPairType[];
 
   upcomingRain.forEach((element) => element.day = 'day ' + element.day);
 
   return (
-    <>
-      <h1>
+    <div className="Chart">
+      <h2>
         Amount of rainfall chart
-      </h1>
+      </h2>
       <BarChart
-        width={700}
-        height={300}
+        width={500}
+        height={250}
         data={upcomingRain}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" />
         <YAxis label={{ value: 'Amount (L/m2)', angle: -90, position: 'insideLeft' }} />
         <Tooltip />
-        <Bar dataKey="amount" fill="#8884d8" />
+        <Bar dataKey="amount" fill="#0575ff" />
       </BarChart>
-    </>
+    </div>
   );
 }
 
