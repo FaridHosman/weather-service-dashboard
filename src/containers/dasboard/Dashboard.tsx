@@ -7,6 +7,10 @@ import ChanceOfRainChart from '../../components/chanceOfRainChart/ChanceOfRainCh
 import styles from './Dashboard.module.scss';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import { useSelector } from 'react-redux';
+import { InitialState } from '../../store/root-reducer';
+import { DayAmountPairType } from '../../types/types';
+import Loader from '../../components/loader/Loader';
 
 function Dashboard(): JSX.Element {
   const dispatch = useDispatch();
@@ -14,14 +18,31 @@ function Dashboard(): JSX.Element {
     dispatch(getRain());
   }, [dispatch]);
 
-  return (
-    <div className={styles.Dashboard}>
-      <Header />
-      <div className={styles.Grid}>
+  const upcomingRain = useSelector<InitialState>(
+    state => state.nextDaysOfRain[0].days
+  ) as DayAmountPairType[];
+
+  const dataLoaded = upcomingRain.length > 0;
+
+  function DisplayDashboard(): JSX.Element {
+    return (
+      <>
         <Slider name="Pressure" min={970} max={1030} units="hPa." />
         <ChanceOfRainChart />
         <Slider name="Temperature" min={10} max={35} units="°C." />
         <AmountOfRainfallChart />
+      </>
+    );
+  }
+
+  return (
+    <div className={styles.Dashboard}>
+      <Header />
+      <div className={styles.Grid}>
+      {dataLoaded
+        ? <DisplayDashboard />
+        : <Loader />
+      }
       </div>
       <Footer />
     </div>
