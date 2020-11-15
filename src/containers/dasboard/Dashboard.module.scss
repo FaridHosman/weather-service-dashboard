@@ -8,11 +8,12 @@
     padding-top: 20px;
     width: 725px;
     height: calc(100vh - 115px);
+    min-height: 95vh;
     border-right: 1px solid var(--secondary-mid);
     border-left: 1px solid var(--secondary-mid);
 
-    @media screen and (max-height: 600px) {
-      min-height: 95vh;
+    div:first-child {
+      margin-top: 125px;
     }
   }
 }

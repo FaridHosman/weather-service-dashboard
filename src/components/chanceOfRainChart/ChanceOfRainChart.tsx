@@ -18,14 +18,14 @@ function ChanceOfRainChart(): JSX.Element {
 
   function calcChanceOfRain(pressure: number, temperature: number, amount: number): number[] {
     const score = Math.log(amount + 1) * Math.log(pressure - 929) * Math.log(temperature - 9);
-    const mean = Math.min(Math.max(score, 0), 100);
-    const upper = Math.min(1.5 * mean, 100);
-    const lower = Math.max(0.5 * mean, 0);
+    const mean = parseFloat(Math.min(Math.max(score, 0), 100).toFixed(3));
+    const upper = parseFloat(Math.min(1.5 * mean, 100).toFixed(3));
+    const lower = parseFloat(Math.max(0.5 * mean, 0).toFixed(3));
 
     return [lower, mean, upper];
   }
 
-  for(var day = 0; day < 7; day++) {
+  for (var day = 0; day < 7; day++) {
     const chance = calcChanceOfRain(pressure, temperature, upcomingRain[day]?.amount)
     const dayValue = day + 1;
     const element = {day: 'day ' + dayValue, lower: chance[0], mean: chance[1], upper: chance[2]};
