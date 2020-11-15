@@ -44,7 +44,7 @@ function ChanceOfRainChart(): JSX.Element {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" />
-        <YAxis label={{ value: 'Probability (%)', angle: -90, position: 'insideLeft' }} domain={[0, 100]} />
+        <YAxis label={{ value: 'Probability (%)', angle: -90, position: 'insideLeft', dy: 50 }} domain={[0, 100]} />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="lower" stroke="#8884d8" />

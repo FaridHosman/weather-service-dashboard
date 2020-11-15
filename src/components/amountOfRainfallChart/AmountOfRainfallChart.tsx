@@ -26,7 +26,7 @@ function AmountOfRainfallChart(): JSX.Element {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" />
-        <YAxis label={{ value: 'Amount (L/m2)', angle: -90, position: 'insideLeft' }} />
+        <YAxis label={{ value: 'Amount (L/m2)', angle: -90, position: 'insideLeft', dy: 50 }} />
         <Tooltip />
         <Bar dataKey="amount" fill="#0575ff" />
       </BarChart>
